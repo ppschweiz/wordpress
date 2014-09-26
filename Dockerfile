@@ -48,6 +48,8 @@ RUN a2dissite 000-default && a2ensite wordpress
 
 COPY docker-entrypoint.sh /entrypoint.sh
 
+COPY update-wordpress.sh /update-wordpress.sh
+
 ENTRYPOINT ["/entrypoint.sh"]
 EXPOSE 80
 CMD ["apache2", "-DFOREGROUND"]

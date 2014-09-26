@@ -114,6 +114,8 @@ if (!$mysql->query('CREATE DATABASE IF NOT EXISTS `' . $mysql->real_escape_strin
 $mysql->close();
 EOPHP
 
+/update-wordpress.sh
+
 chown -R "$APACHE_RUN_USER:$APACHE_RUN_GROUP" .
 
 exec "$@"
