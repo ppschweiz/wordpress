@@ -15,7 +15,6 @@ function check_version {
         version_old=$(grep '^\$wp_version' $WEB_PATH/wp-includes/version.php | grep -o '[0-9.]\+')
         if [ $version_new -le $version_old ]
         then
-                cleanup
                 echo "is uptodate"
                 exit 0
         fi
