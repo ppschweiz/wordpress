@@ -26,6 +26,10 @@ function check_version {
 function update {
         cd /usr/src/wordpress/
 
+	# Install PPS plugins/themes
+	mkdir -p $WEB_PATH/wp-content/themes/pps/
+	rsync -a wp-content/themes/pps/ $WEB_PATH/wp-content/themes/pps/
+
         # exit if version is uptodate
         check_version
 
@@ -33,6 +37,7 @@ function update {
         chown -R "$APACHE_RUN_USER:$APACHE_RUN_GROUP" .
 
         rsync -a . $WEB_PATH
+
 }
 
 update
