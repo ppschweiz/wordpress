@@ -27,6 +27,10 @@ COPY update-wordpress.sh /update-wordpress.sh
 
 RUN git clone https://github.com/ppschweiz/wptheme.git /wptheme && mv /wptheme/pps /usr/src/wordpress/wp-content/themes/pps && rm -Rf /wptheme
 
+RUN curl -SL curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar > /usr/local/bin/wp-cli.phar
+RUN chmod 755 /usr/local/bin/wp-cli.phar
+ADD wp /usr/local/bin/wp
+
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2", "-DFOREGROUND"]
 
