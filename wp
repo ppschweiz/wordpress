@@ -1,2 +1,2 @@
 #!/bin/sh
-cd /var/www/html && su www-data -c /usr/local/bin/wp-cli.phar $@
+cd /var/www/html && su www-data -c "/usr/bin/php /usr/local/bin/wp-cli.phar $*"
