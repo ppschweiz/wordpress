@@ -31,6 +31,8 @@ RUN curl -SL curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/ph
 RUN chmod 755 /usr/local/bin/wp-cli.phar
 ADD wp /usr/local/bin/wp
 
+RUN a2enmod expires headers
+
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2", "-DFOREGROUND"]
 
